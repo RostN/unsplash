@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5sp">
+    <!--Прогресс бар-->
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/custom_color_secondary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <!--Контроль-->
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/interfaceCollection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="authorAvatar,authorNickname, authorName,collectionName,sumOfPhoto,mainPhoto" />
+    <!--Загруженное фото-->
+    <ImageView
+        android:id="@+id/mainPhoto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        tools:ignore="MissingConstraints" />
+    <!--Эмблема UNSPLASH+    -->
+    <TextView
+        android:id="@+id/unsplashPlus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@color/black"
+        android:text="@string/collections_subscription"
+        android:textColor="@color/white"
+        android:textStyle="bold|italic"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/mainPhoto"
+        app:layout_constraintEnd_toEndOf="@id/mainPhoto"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toStartOf="@id/mainPhoto"
+        app:layout_constraintTop_toTopOf="@id/mainPhoto"
+        app:layout_constraintVertical_bias="0" />
+    <!--Количество фотографий-->
+    <TextView
+        android:id="@+id/sumOfPhoto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:shadowColor="@color/black"
+        android:shadowRadius="10"
+        android:text="@string/collection_sum_of_photo"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/mainPhoto"
+        app:layout_constraintEnd_toEndOf="@id/mainPhoto"
+        app:layout_constraintStart_toStartOf="@id/mainPhoto"
+        app:layout_constraintTop_toTopOf="@id/mainPhoto"
+        app:layout_constraintVertical_bias="0" />
+    <!--Название альбома/коллекции-->
+    <TextView
+        android:id="@+id/collectionName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:shadowColor="@color/black"
+        android:shadowRadius="10"
+        android:text="@string/collection_name_collection"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/mainPhoto"
+        app:layout_constraintStart_toStartOf="@id/mainPhoto"
+        app:layout_constraintTop_toBottomOf="@id/sumOfPhoto" />
+    <!--Имя автора-->
+    <TextView
+        android:id="@+id/authorName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:ellipsize="end"
+        android:maxLength="14"
+        android:maxLines="1"
+        android:shadowColor="@color/black"
+        android:shadowRadius="10"
+        android:text="@string/author_name"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/authorNickname"
+        app:layout_constraintEnd_toEndOf="@id/mainPhoto"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/authorAvatar"
+        app:layout_constraintTop_toTopOf="@id/authorAvatar" />
+    <!--Никнейм автора-->
+    <TextView
+        android:id="@+id/authorNickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginBottom="5dp"
+        android:ellipsize="end"
+        android:maxLength="18"
+        android:maxLines="1"
+        android:shadowColor="@color/black"
+        android:shadowRadius="10"
+        android:text="@string/author_nickname"
+        android:textColor="@color/white"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="@id/authorAvatar"
+        app:layout_constraintEnd_toEndOf="@id/mainPhoto"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/authorAvatar"
+        app:layout_constraintTop_toBottomOf="@id/authorName" />
+    <!--Аватарка автора-->
+    <ImageView
+        android:id="@+id/authorAvatar"
+        android:layout_width="35dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="7dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/feed_author_avatar"
+        app:layout_constraintBottom_toBottomOf="@id/mainPhoto"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toStartOf="@id/mainPhoto" />
+</androidx.constraintlayout.widget.ConstraintLayout>

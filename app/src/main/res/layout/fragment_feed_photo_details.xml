@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    tools:context=".feed.FeedPhotoDetails">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".feed.FeedPhotoDetails">
+        <!--Прогресс бар-->
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminateTint="@color/custom_color_secondary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <!--Загруженное фото-->
+        <ImageView
+            android:id="@+id/mainPhoto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:background="@color/purple_200"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <!--тень кнопки назад назад-->
+        <ImageView
+            android:id="@+id/backBtnShadow"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="0dp"
+            android:src="@drawable/feed_photo_details_back"
+            app:layout_constraintBottom_toBottomOf="@id/backBtn"
+            app:layout_constraintEnd_toEndOf="@id/backBtn"
+            app:layout_constraintStart_toStartOf="@id/backBtn"
+            app:layout_constraintTop_toTopOf="@id/backBtn"
+            app:tint="@color/black" />
+        <!--кнопка назад-->
+        <ImageView
+            android:id="@+id/backBtn"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/feed_photo_details_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/white" />
+        <!--Имя автора-->
+        <TextView
+            android:id="@+id/authorName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:shadowColor="@color/black"
+            android:shadowRadius="5"
+            android:text="@string/author_name"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/authorNickname"
+            app:layout_constraintEnd_toStartOf="@id/indexLike"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@id/authorAvatar"
+            app:layout_constraintTop_toTopOf="@id/authorAvatar" />
+        <!--Никнейм автора-->
+        <TextView
+            android:id="@+id/authorNickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="5dp"
+            android:ellipsize="end"
+            android:maxLength="18"
+            android:maxLines="1"
+            android:shadowColor="@color/black"
+            android:shadowRadius="5"
+            android:text="@string/author_nickname"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@id/authorAvatar"
+            app:layout_constraintEnd_toStartOf="@id/indexLike"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@id/authorAvatar"
+            app:layout_constraintTop_toBottomOf="@id/authorName" />
+        <!--Количество лайков-->
+        <TextView
+            android:id="@+id/sumLikes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:shadowColor="@color/black"
+            android:shadowRadius="5"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@id/indexLike"
+            app:layout_constraintEnd_toEndOf="@id/indexLike"
+            app:layout_constraintStart_toStartOf="@id/indexLike" />
+        <!--Аватарка автора-->
+        <ImageView
+            android:id="@+id/authorAvatar"
+            android:layout_width="35dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="7dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/feed_author_avatar"
+            app:layout_constraintBottom_toBottomOf="@id/mainPhoto"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toStartOf="@id/mainPhoto" />
+        <!--Тень лайка-->
+        <ImageView
+            android:id="@+id/indexLikeShadow"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:src="@drawable/icon_like"
+            app:layout_constraintBottom_toBottomOf="@id/indexLike"
+            app:layout_constraintEnd_toEndOf="@id/indexLike"
+            app:layout_constraintStart_toStartOf="@id/indexLike"
+            app:layout_constraintTop_toTopOf="@id/indexLike"
+            app:layout_constraintVertical_bias=".55"
+            app:tint="@color/black" />
+        <!--Лайк-->
+        <ImageView
+            android:id="@+id/indexLike"
+            android:layout_width="30dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="2dp"
+            android:src="@drawable/icon_like"
+            app:layout_constraintBottom_toBottomOf="@id/authorAvatar"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="@id/mainPhoto"
+            app:layout_constraintTop_toTopOf="@id/authorAvatar" />
+        <!--Иконка геолокации-->
+        <ImageView
+            android:id="@+id/iconLocation"
+            android:layout_width="15dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="2dp"
+            android:src="@drawable/feed_location_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mainPhoto" />
+        <!--Текст геолокации-->
+        <TextView
+            android:id="@+id/locationName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@string/feed_photo_details_location_name"
+            app:layout_constraintBottom_toBottomOf="@id/iconLocation"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@id/iconLocation"
+            app:layout_constraintTop_toTopOf="@id/iconLocation" />
+        <!--Поделиться-->
+        <TextView
+            android:id="@+id/sharedBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/feed_photo_details_shared_text"
+            android:textStyle="bold"
+            app:drawableEndCompat="@drawable/feed_photo_details_share_icon"
+            app:layout_constraintBottom_toTopOf="@id/hashTag"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintStart_toEndOf="@id/locationName"
+            app:layout_constraintTop_toBottomOf="@id/mainPhoto" />
+        <!--хэштеги-->
+        <TextView
+            android:id="@+id/hashTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/feed_photo_details_hashTag"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sharedBtn" />
+        <!--Exif-->
+        <TextView
+            android:id="@+id/exif"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/feed_photo_details_exif"
+            app:layout_constraintBottom_toTopOf="@id/barrier"
+            app:layout_constraintEnd_toStartOf="@id/authorInfo"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintTop_toBottomOf="@id/hashTag" />
+        <!--Информация об авторе-->
+        <TextView
+            android:id="@+id/authorInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/feed_photo_details_author_info"
+            app:layout_constraintBottom_toTopOf="@id/barrier"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/exif"
+            app:layout_constraintTop_toBottomOf="@id/hashTag"
+            app:layout_constraintVertical_bias="0" />
+        <!--Барьер-->
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/barrier"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="mainPhoto, backBtnShadow, backBtn, authorName, authorNickname, sumLikes, authorAvatar, indexLikeShadow, indexLike, iconLocation, locationName, sharedBtn, hashTag, exif, authorInfo, downloadBtn, sumOfDownloads"
+            app:layout_constraintBottom_toTopOf="@id/sumOfDownloads" />
+        <!--Текст-кнопка загрузки-->
+        <TextView
+            android:id="@+id/downloadBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10sp"
+            android:layout_marginBottom="3sp"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="@string/feed_photo_details_download"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/sumOfDownloads"
+            app:layout_constraintEnd_toStartOf="@id/sumOfDownloads"
+            app:layout_constraintTop_toTopOf="@id/sumOfDownloads" />
+        <!--Количество загрузок-->
+        <TextView
+            android:id="@+id/sumOfDownloads"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/feed_photo_details_sumOfDownloads"
+            android:textStyle="bold"
+            app:drawableEndCompat="@drawable/feed_photo_details_download_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="1" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

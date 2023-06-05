@@ -1,0 +1,83 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!--Текст онбординга-->
+    <string name="title_onboard_one">Создавайте снимки, публикуйте, собирайте аудиторию, получайте фидбек! </string>
+    <string name="title_onboard_two">Делитесь с друзьями, собирайте коллекции</string>
+    <string name="title_onboard_three">Загружайте любимые снимки и отслеживайте статистику</string>
+    <string name="description_onboard_one"> </string>
+    <string name="description_onboard_two"> </string>
+    <string name="description_onboard_three"> </string>
+    <string name="text_skip">Пропустить</string>
+
+    <!--Аутентификация-->
+    <string name="loginBtn">Войти через Unsplash</string>
+    <string name="auth_canceled">Аутентификация не выполнена</string>
+
+    <!--Названия иконок меню-->
+    <string name="title_feed">Лента</string>
+    <string name="title_collection">Коллекции</string>
+    <string name="title_notifications">Пользователь</string>
+
+    <!--Детальная информация о фото-->
+    <string name="feed_photo_details_exif_made">Сделано на:\u0020</string>
+    <string name="feed_photo_details_exif_model">Модель:\u0020</string>
+    <string name="feed_photo_details_exif_exposure">Выдержка:\u0020</string>
+    <string name="feed_photo_details_exif_aperture">Апертура:\u0020</string>
+    <string name="feed_photo_details_exif_focal_length">Фокусное расстояние:\u0020</string>
+    <string name="feed_photo_details_exif_iso">ISO:\u0020</string>
+    <string name="feed_photo_details_location_label">Место фотографии</string>
+    <string name="feed_photo_details_shared_text"><u>Поделиться</u>\u0020</string>
+    <string name="feed_photo_details_shared_link">Поделиться через:</string>
+    <string name="feed_photo_details_download"><u>Загрузить</u></string>
+    <string name="feed_photo_details_permission_granted">Разрешения успешно получены</string>
+    <string name="feed_photo_details_permission_notgranted">Извините, но без доступа к внутреннему хранилищу, выполнить данную опреацию невозможно</string>
+
+    <!--Коллекции-->
+    <plurals name="collection_photo_sum">
+        <item quantity="one">%1$d фотография</item>
+        <item quantity="few">%1$d фотографии</item>
+        <item quantity="many">%1$d фотографий</item>
+        <item quantity="other">%1$d фотографий</item>
+    </plurals>
+    <string name="collections_subscription">\u0020 По подписке UNSPLASH +\u0020</string>
+    <string name="collections_photo_unsplash_plus">Список фотографий данной коллекции, доступен только пользователям подписки  <b>UNSPASH + </b></string>
+
+    <!--Аккаунт-->
+    <string name="exit_question">Вы уверены?</string>
+    <string name="exit_yes_btn">Выйти</string>
+    <string name="exit_no_btn">Остаться</string>
+    <plurals name="profile_followers">
+        <item quantity="one">%1$d подписчик</item>
+        <item quantity="few">%1$d подписчика</item>
+        <item quantity="many">%1$d подписчиков</item>
+        <item quantity="other">%1$d подписчиков</item>
+    </plurals>
+    <plurals name="profile_following">
+        <item quantity="one">%1$d подписка</item>
+        <item quantity="few">%1$d подписки</item>
+        <item quantity="many">%1$d подписок</item>
+        <item quantity="other">%1$d подписок</item>
+    </plurals>
+
+    <!--Заглушки, можно не переводить-->
+    <string name="author_name">Имя автора</string>
+    <string name="author_nickname">Никнейм</string>
+    <string name="feed_photo_details_location_name">Наименование локации</string>
+    <string name="feed_photo_details_hashTag">хэштеги</string>
+    <string name="feed_photo_details_author_info">Информация о авторе</string>
+    <string name="feed_photo_details_exif">exif\nexif\nexif\nexif\nexif\nexif</string>
+    <string name="feed_photo_details_sumOfDownloads">(000)</string>
+    <string name="collection_sum_of_photo">Количество фотограций</string>
+    <string name="collection_name_collection">Название альбома</string>
+    <string name="collections_details_collection_name">Название альбома</string>
+    <string name="collections_details_collection_tags">Теги</string>
+    <string name="collections_details_collection_description">Описание</string>
+    <string name="collections_details_collection_author_nickname">Никнейм автора</string>
+    <string name="collections_details_collection_total_photos">Количество фотографий</string>
+    <string name="profile_total_followers">Количество подписчеков</string>
+    <string name="profile_total_following">Количество подписок</string>
+    <string name="profile_mail">Почта</string>
+
+
+    <!--Остальное-->
+    <string name="app_name">attestation</string>
+</resources>

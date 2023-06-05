@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".collections.CollectionsDetails">
+    <!--Прогресс бар-->
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/custom_color_secondary"
+        app:layout_constraintBottom_toTopOf="@id/collectionDetailsRecycler"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias=".25"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--Контроль содержимого-->
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/collectionDetailsInterface"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="collectionDetailsRecycler,collectionTotalPhoto,collectionDescription,backgroundCover,collectionName,collectionTags,center,authorNickname,imageView" />
+
+    <!--Обложка альбома в виде фона, частично прозрачная-->
+    <ImageView
+        android:id="@+id/backgroundCover"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/collectionDetailsRecycler"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+    <!--Белая подложка-->
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#B3FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@id/backgroundCover"
+        app:layout_constraintEnd_toEndOf="@id/backgroundCover"
+        app:layout_constraintStart_toStartOf="@id/backgroundCover"
+        app:layout_constraintTop_toTopOf="@id/backgroundCover" />
+    <!--Точка опоры под картинку альбома-->
+    <View
+        android:id="@+id/center"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias=".3" />
+    <!--Ресайклер-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/collectionDetailsRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/collectionTotalPhoto"
+        app:spanCount="2" />
+
+    <!--Количество фотографий-->
+    <TextView
+        android:id="@+id/collectionTotalPhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:shadowColor="@color/white"
+        android:shadowRadius="10"
+        android:text="@string/collections_details_collection_total_photos"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/authorNickname"
+        app:layout_constraintEnd_toStartOf="@id/authorNickname"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/authorNickname" />
+
+    <!--Автор или никнейм пользователя-->
+    <TextView
+        android:id="@+id/authorNickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:shadowColor="@color/white"
+        android:shadowRadius="3"
+        android:text="@string/collections_details_collection_author_nickname"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/collectionDetailsRecycler"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/collectionDescription" />
+
+    <!--Описание-->
+    <TextView
+        android:id="@+id/collectionDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="15dp"
+        android:shadowColor="@color/white"
+        android:shadowRadius="3"
+        android:text="@string/collections_details_collection_description"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/authorNickname"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/collectionTags" />
+
+    <!--Теги-->
+    <TextView
+        android:id="@+id/collectionTags"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:shadowColor="@color/white"
+        android:shadowRadius="3"
+        android:text="@string/collections_details_collection_tags"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/collectionDescription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/collectionName" />
+
+    <!--Название коллекции-->
+    <TextView
+        android:id="@+id/collectionName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="15dp"
+        android:shadowColor="@color/white"
+        android:shadowRadius="3"
+        android:text="@string/collections_details_collection_name"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/collectionTags"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

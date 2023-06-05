@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".account.AccountFragment">
+    <!--Прогресс бар-->
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/custom_color_secondary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias=".2"
+        app:layout_constraintTop_toTopOf="parent" />
+    <!--Управление видимостью-->
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/accountInterface"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="exitBtn,tableThirdLine,profileFollowers,totalCollections,profileBio,mailText,tableSecondLine,totalLikes,profileFollowing,tableTopLine,profileTotalDownloads,location,recyclerProfile,mailIcon,tableFourthLine,locationIcon,profileAvatar,collectionIcon,locationText,tableFirstLine,tableBottomLine,profileTotalPhotos,profileFullName,downloadIcon,likeIcon,profileNickname" />
+    <!--Кнопка выход-->
+    <ImageView
+        android:id="@+id/exitBtn"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="5dp"
+        android:src="@drawable/logout_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0"
+        app:tint="@color/white" />
+    <!--Аватарка пользователя-->
+    <ImageView
+        android:id="@+id/profileAvatar"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_margin="15dp"
+        android:background="@drawable/feed_author_avatar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <!--Лайки-->
+    <!--Иконка-->
+    <ImageView
+        android:id="@+id/likeIcon"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:src="@drawable/icon_like"
+        app:layout_constraintBottom_toTopOf="@id/collectionIcon"
+        app:layout_constraintEnd_toStartOf="@id/totalLikes"
+        app:layout_constraintStart_toStartOf="@id/profileAvatar"
+        app:layout_constraintTop_toBottomOf="@id/profileAvatar" />
+    <!--Текст-->
+    <TextView
+        android:id="@+id/totalLikes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/feed_photo_details_sumOfDownloads"
+        android:textAlignment="textStart"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/likeIcon"
+        app:layout_constraintStart_toStartOf="@id/totalCollections"
+        app:layout_constraintTop_toTopOf="@id/likeIcon" />
+    <!--Коллекции-->
+    <!--Иконка-->
+    <ImageView
+        android:id="@+id/collectionIcon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/collection_icon"
+        app:layout_constraintBottom_toTopOf="@id/tableTopLine"
+        app:layout_constraintEnd_toStartOf="@id/totalCollections"
+        app:layout_constraintStart_toStartOf="@id/likeIcon"
+        app:layout_constraintTop_toBottomOf="@id/likeIcon"
+        app:tint="@color/white" />
+    <!--Текст-->
+    <TextView
+        android:id="@+id/totalCollections"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:text="@string/feed_photo_details_sumOfDownloads"
+        android:textAlignment="textStart"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/collectionIcon"
+        app:layout_constraintEnd_toEndOf="@id/profileAvatar"
+        app:layout_constraintStart_toEndOf="@id/collectionIcon"
+        app:layout_constraintTop_toTopOf="@id/collectionIcon" />
+    <!--Полное имя пользователя-->
+    <TextView
+        android:id="@+id/profileFullName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:text="@string/author_name"
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/profileAvatar"
+        app:layout_constraintEnd_toStartOf="@id/exitBtn"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/profileAvatar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0" />
+    <!--Нккнейм пользователя-->
+    <TextView
+        android:id="@+id/profileNickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:text="@string/author_nickname"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/profileAvatar"
+        app:layout_constraintTop_toBottomOf="@id/profileFullName" />
+    <!--Описание-->
+    <TextView
+        android:id="@+id/profileBio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:text="@string/collections_details_collection_description"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/profileAvatar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/profileAvatar"
+        app:layout_constraintTop_toBottomOf="@id/profileNickname" />
+    <!--Местоположение -->
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/location"
+        android:layout_width="10dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        app:constraint_referenced_ids="locationIcon,locationText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/profileAvatar"
+        app:layout_constraintTop_toBottomOf="@id/profileBio" />
+    <!--Иконка геолокации-->
+    <ImageView
+        android:id="@+id/locationIcon"
+        android:layout_width="10dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/feed_location_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/profileAvatar"
+        app:layout_constraintTop_toBottomOf="@id/profileBio"
+        app:tint="@color/white" />
+    <!--Текст геолокации-->
+    <TextView
+        android:id="@+id/locationText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="@string/feed_photo_details_location_name"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/locationIcon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/locationIcon"
+        app:layout_constraintTop_toTopOf="@id/locationIcon" />
+    <!--Электронная почта-->
+    <!--Иконка-->
+    <ImageView
+        android:id="@+id/mailIcon"
+        android:layout_width="20dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/mail_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/profileAvatar"
+        app:layout_constraintTop_toBottomOf="@id/location"
+        app:tint="@color/white" />
+    <!--Текст почты-->
+    <TextView
+        android:id="@+id/mailText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="@string/profile_mail"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/mailIcon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/mailIcon"
+        app:layout_constraintTop_toTopOf="@id/mailIcon" />
+    <!--Количество скачиваний-->
+    <!--Иконка-->
+    <ImageView
+        android:id="@+id/downloadIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:src="@drawable/feed_photo_details_download_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/profileAvatar"
+        app:layout_constraintTop_toBottomOf="@id/mailIcon"
+        app:tint="@color/white" />
+    <!--Текст-->
+    <TextView
+        android:id="@+id/profileTotalDownloads"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="@string/feed_photo_details_sumOfDownloads"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/downloadIcon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/downloadIcon"
+        app:layout_constraintTop_toTopOf="@id/downloadIcon" />
+    <!--Табличка-->
+    <!--Верхняя линия    -->
+    <ImageView
+        android:id="@+id/tableTopLine"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profileTotalDownloads" />
+    <!--1-я линия-->
+    <ImageView
+        android:id="@+id/tableFirstLine"
+        android:layout_width="1dp"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="20dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/tableBottomLine"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tableTopLine" />
+    <!--2-я линия-->
+    <ImageView
+        android:id="@+id/tableSecondLine"
+        android:layout_width="1dp"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="20dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/tableBottomLine"
+        app:layout_constraintEnd_toEndOf="@id/tableThirdLine"
+        app:layout_constraintStart_toStartOf="@id/tableFirstLine"
+        app:layout_constraintTop_toBottomOf="@id/tableTopLine" />
+    <!--3-я линия-->
+    <ImageView
+        android:id="@+id/tableThirdLine"
+        android:layout_width="1dp"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="20dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/tableBottomLine"
+        app:layout_constraintEnd_toEndOf="@id/tableFourthLine"
+        app:layout_constraintStart_toStartOf="@id/tableSecondLine"
+        app:layout_constraintTop_toBottomOf="@id/tableTopLine" />
+    <!--4-я линия-->
+    <ImageView
+        android:id="@+id/tableFourthLine"
+        android:layout_width="1dp"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="20dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/tableBottomLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tableTopLine" />
+    <!--Нижняя линия-->
+    <ImageView
+        android:id="@+id/tableBottomLine"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="60dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tableTopLine" />
+    <!--Количество фотографий-->
+    <TextView
+        android:id="@+id/profileTotalPhotos"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/collections_details_collection_total_photos"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/tableBottomLine"
+        app:layout_constraintEnd_toStartOf="@id/tableSecondLine"
+        app:layout_constraintStart_toStartOf="@id/tableFirstLine"
+        app:layout_constraintTop_toTopOf="@id/tableTopLine"
+
+        />
+    <!--Количество подписчиков-->
+    <TextView
+        android:id="@+id/profileFollowers"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/profile_total_followers"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/tableBottomLine"
+        app:layout_constraintEnd_toEndOf="@id/tableThirdLine"
+        app:layout_constraintStart_toStartOf="@id/tableSecondLine"
+        app:layout_constraintTop_toTopOf="@id/tableTopLine" />
+    <!--Количество подписок-->
+    <TextView
+        android:id="@+id/profileFollowing"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/profile_total_following"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/tableBottomLine"
+        app:layout_constraintEnd_toEndOf="@id/tableFourthLine"
+        app:layout_constraintStart_toStartOf="@id/tableThirdLine"
+        app:layout_constraintTop_toTopOf="@id/tableTopLine" />
+    <!--Фотографии-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerProfile"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginTop="10dp"
+        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tableBottomLine"
+        app:spanCount="3" />
+    <!--Уведомление    -->
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/exitWindow"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:constraint_referenced_ids="exitBackground, exitNotification, exitTitle, exitYes, exitNo" />
+    <!--    фон-->
+    <ImageView
+        android:id="@+id/exitBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#66FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <!--Окно-->
+    <ImageView
+        android:id="@+id/exitNotification"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/exit_windows"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <!-- Текст -->
+    <TextView
+        android:id="@+id/exitTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:text="@string/exit_question"
+        android:textColor="@color/white"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/exitNotification"
+        app:layout_constraintEnd_toEndOf="@id/exitNotification"
+        app:layout_constraintStart_toStartOf="@id/exitNotification"
+        app:layout_constraintTop_toTopOf="@id/exitNotification"
+        app:layout_constraintVertical_bias="0" />
+    <!--Кнопки-->
+    <Button
+        android:id="@+id/exitYes"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:shadowColor="@color/black"
+        android:shadowRadius="15"
+        android:text="@string/exit_yes_btn"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/exitNotification"
+        app:layout_constraintEnd_toStartOf="@id/exitNo"
+        app:layout_constraintStart_toStartOf="@id/exitNotification"
+        app:layout_constraintTop_toBottomOf="@id/exitTitle"
+        app:layout_constraintVertical_bias="0" />
+
+    <Button
+        android:id="@+id/exitNo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:shadowColor="@color/black"
+        android:shadowRadius="15"
+        android:text="@string/exit_no_btn"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/exitNotification"
+        app:layout_constraintEnd_toEndOf="@id/exitNotification"
+        app:layout_constraintStart_toEndOf="@id/exitYes"
+        app:layout_constraintTop_toBottomOf="@id/exitTitle"
+        app:layout_constraintVertical_bias="0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

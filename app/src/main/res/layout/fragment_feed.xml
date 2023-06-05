@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".feed.FeedFragment">
+
+    <!--Ресайкл-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/feedRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/inputText"
+        app:spanCount="2" />
+    <!--Строка поиска-->
+    <EditText
+        android:id="@+id/inputText"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/feed_search_edittext_border"
+        android:maxHeight="30dp"
+        android:maxLines="1"
+        android:paddingStart="10sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/searchBtn"
+        app:layout_constraintEnd_toStartOf="@id/searchBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/searchBtn"
+        app:layout_constraintVertical_bias="0" />
+    <!--Тень кнопки поиска-->
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/feed_search_icon_shadow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="#000000" />
+    <!--Кнопка поиска    -->
+    <ImageView
+        android:id="@+id/searchBtn"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/feed_search_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/white" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
